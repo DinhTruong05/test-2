@@ -3,15 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML link</title>
+    <style>
+        body {
+
+            font-family: Arial, sans-serif; padding: 20px; line-height: 1.6;
+        }
+
+        table {
+            font-family: times, "Times New Roman", serif;
+            width: 300px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>HTML: HyperText Markup Language</h1>
-    <p>Tim Berners-Lee invented the first browser at CERN, to enable researchers to share their research with eachother.</p>
-    <a target="_blank" href="http://home.web.cern.ch/topics/birth-web">Read more about the history of HTML
-        <p>
-            <img src="https://www.kasandbox.org/programming-images/misc/tim-berners-lee-webpage.png" width="300">
-            <br/>Image courtesy CERN
-        </p>
-    </a>
+<form method="post" action=""enctype="multipart/form-data">
+    <fieldset>
+    <p><strong>Đăng Nhập</strong></p>
+    <input type="text" name="Name"><br>
+    <input type="text" name="password">
+    <input type="file" name="filename" id="filename"><br>
+    <button type="submit">Login</button>
+    </fieldset>
+</form>
+<table border="1">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+        <tr>
+            <td>1</td>
+            <td>Truong</td>
+            <td>acb@gmail.com</td>
+            <td>0123322113</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>tam</td>
+            <td>tma@gmail.com</td>
+            <td>01102201019</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>duy</td>
+            <td>duýa@gmail.com</td>
+            <td>01214818481</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>linh</td>
+            <td>askd@gmail.com</td>
+            <td>012391487</td>
+        </tr>
+</table>
+<br>
+<table border="1">
+        <tr>
+            <td rowspan="2">Sinh viên</td>
+
+            <td colspan="3">Điểm số</td>
+
+        </tr>
+        <tr>
+
+            <td>Toán</td>
+            <td>vật lý</td>
+            <td>Hóa</td>
+        </tr>
+        <tr>
+            <td>truong</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>tam</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>duy</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>lich</td>
+            <td>7</td>
+            <td>6</td>
+            <td>8</td>
+        </tr>
+         <tr>
+        <td colspan="3">Tổng SV</td>
+
+        <td>4</td>
+        </tr>
+
+    </table>
 </body>
 </html>

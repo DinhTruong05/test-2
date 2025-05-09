@@ -1,0 +1,58 @@
+body {
+    background-color: #ccffff;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 600px;
+    margin: 20px auto;
+    background-color: #ffffcc;
+    padding: 20px;
+    border: 5px solid #ffffcc;
+}
+
+h2 {
+    background-color: #ccffcc;
+    color: blue;
+    margin-top: 0;
+    padding: 10px;
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+label {
+    font-weight: bold;
+    color: navy;
+    display: inline-block;
+    width: 80px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 90%;
+    padding: 5px;
+}
+
+textarea {
+    height: 80px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.buttons input {
+    padding: 5px 20px;
+    margin: 0 10px;
+    box-shadow: 2px 2px 2px #aaa;

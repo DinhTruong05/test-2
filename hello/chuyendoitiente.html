@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHUYỂN ĐỔI TIỀN TỆ</title>
+    <script src="../JC/tiente.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            margin: 10px;
+            padding: 5px;
+
+        }
+        #convert {
+            background-color: #a18cd1;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #result {
+            color: blue;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <label>Amount</label>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>From Currency</label>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>To Currency</label><br>
+    <input type="number" id="amount" value="">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select id="from currency" value="">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+    </select>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select id="to currency" value="">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="convert">Convert</button>
+    <br>
+    <div id="result">result : </div>
+    <script>
+        document.getElementById('convert').addEventListener('click', function () {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const from = document.getElementById('from currency').value;
+            const to = document.getElementById('to currency').value;
+
+            let rate = 0;
+
+
+            if (from === 'VND' && to === 'USD') {
+                rate = 0.0000438789;
+            } else if (from === 'USD' && to === 'VND') {
+                rate = 22800;
+            } else {
+                rate = 1; // cùng loại tiền
+            }
+
+            const result = amount * rate;
+            document.getElementById('result').innerHTML = `Result: ${result} ${to}`;
+        });
+    </script>
+</body>
+</html>

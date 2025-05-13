@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Năm Nhuận</title>
+</head>
+<body>
+<script>
+    var year = parseInt(prompt('enter the year'));
+    var isLeapYear = false
+    var isDivisivleBy4 = year % 4 == 0;
+    if (isDivisivleBy4) {
+        var isDivisivle100 = year % 100 == 0;
+        if (isDivisivle100) {
+            var isDivisivle400 = year % 400 == 0;
+            if (isDivisivle400) {
+                isLeapYear = true;
+            }
+        } else {
+            isLeapYear = true;
+        }
+    }
+    if (isLeapYear) {
+        alert(year + ' is a leap year');
+    } else {
+        alert(year + ' is Not a leap year');
+    }
+
+
+</script>
+
+</body>
+</html>

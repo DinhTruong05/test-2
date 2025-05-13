@@ -5,11 +5,23 @@
     <title>TOAN TU</title>
 </head>
 <body>
+<!--<script>-->
+<!--  let a = +prompt("a",'')-->
+<!--  let b = +prompt("b",'')-->
+<!--  result = (a + b < 4 ) ? 'Below': 'over';-->
+<!--  document.write(result);-->
+<!--</script>-->
+
 <script>
-  let a = +prompt("a",'')
-  let b = +prompt("b",'')
-  result = (a + b < 4 ) ? 'Below': 'over';
-  document.write(result);
+  let login = prompt("Enter:");
+  let message = (login == 'Employee') ?
+  'Hello' :
+          (login == 'Director') ?
+             'Greetings' :
+                  (login == '') ?
+                          'No login' :
+                          '';
+  alert(message);
 </script>
 </body>
 </html>

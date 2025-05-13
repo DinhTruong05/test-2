@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tien dien</title>
+</head>
+<body>
+<h2>TIỀN ĐIỆN PHẢI TRẢ</h2>
+<label><input type="number" id="n" value=""></label>
+<button onclick="result()">result</button>
+<p id="result"></p>
+<script>
+    function result() {
+        let n = +document.getElementById("n").value;
+        if (n > 0) {
+            if (n <= 50) {
+                let money = n * 2000
+                document.getElementById("result").innerHTML = "=" + "" + money + "VND";
+            } else if (n < 150) {
+                let money = n * 3000
+                document.getElementById("result").innerHTML = "=" + "" + money + "VND";
+            } else if (n < 250) {
+                let money = n * 3500
+                document.getElementById("result").innerHTML = "=" + "" + money + "VND";
+            } else {
+                let money = n * 3000
+                document.getElementById("result").innerHTML = "=" + "" + money + "VND";
+            }
+
+        } else {
+            document.getElementById("n").innerHTML = " so dien phai > 0";
+        }
+    }
+</script>
+</body>
+</html>

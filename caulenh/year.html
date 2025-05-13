@@ -8,11 +8,11 @@
 <script>
     var year = parseInt(prompt('enter the year'));
     var isLeapYear = false
-    var isDivisivleBy4 = year % 4 == 0;
+    var isDivisivleBy4 = year % 4 === 0;
     if (isDivisivleBy4) {
-        var isDivisivle100 = year % 100 == 0;
+        var isDivisivle100 = year % 100 === 0;
         if (isDivisivle100) {
-            var isDivisivle400 = year % 400 == 0;
+            var isDivisivle400 = year % 400 === 0;
             if (isDivisivle400) {
                 isLeapYear = true;
             }

@@ -2,25 +2,33 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Form Đẹp</title>
+  <title>Form Đăng Nhập</title>
   <style>
     body {
-      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d'); /* ảnh nền */
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
 
     .form-container {
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
       width: 350px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       text-align: center;
+    }
+
+    .form-container img {
+      width: 80px;
+      margin-bottom: 20px;
     }
 
     .form-container h2 {
@@ -32,8 +40,8 @@
       display: block;
       text-align: left;
       margin-bottom: 5px;
-      color: #444;
       font-weight: bold;
+      color: #444;
     }
 
     .form-container input {
@@ -46,7 +54,7 @@
     }
 
     .form-container input:focus {
-      border-color: #74ebd5;
+      border-color: #00aaff;
       outline: none;
     }
 
@@ -55,7 +63,7 @@
       padding: 12px;
       border: none;
       border-radius: 8px;
-      background-color: #4facfe;
+      background-color: #00aaff;
       color: white;
       font-size: 16px;
       cursor: pointer;
@@ -63,13 +71,16 @@
     }
 
     .form-container button:hover {
-      background-color: #00f2fe;
+      background-color: #0077cc;
     }
   </style>
 </head>
 <body>
 
 <div class="form-container">
+  <!-- 👇 Logo phía trên -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="Logo">
+
   <h2>Đăng nhập</h2>
   <form>
     <label for="username">Tên đăng nhập</label>

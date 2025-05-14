@@ -4,29 +4,84 @@
     <meta charset="UTF-8">
     <title>JUST FOR FUN</title>
     <style>
-        #love, #cry {
-            display: none;
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            color: #333;
+        }
 
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6b81;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        img {
+            display: none;
+            margin: 30px auto 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-<h2>show img</h2>
+<h2>DO YOU LOVE ME ? 💖</h2>
 <button onclick="ShowImg()">Có</button>
 <button onclick="ShowImg1()">Không</button>
 <br><br>
-<img id="love" src="../imggif/pokemon love GIF.gif" height="273" width="500" alt="wait">
-
-
+<img id="love" src="../imggif/pokemon love GIF.gif" height="245" width="245" alt="wait">
 <img id="cry" src="../pikacry/pokemon crying GIF.gif" height="245" width="245" alt="">
+<!--<script>-->
+<!--    function ShowImg() {-->
+<!--        document.getElementById("love").style.display = "block";-->
+<!--        document.getElementById("cry").style.display = "none"-->
+<!--    }-->
+
+<!--    function ShowImg1() {-->
+<!--        document.getElementById("cry").style.display = "block";-->
+<!--        document.getElementById("love").style.display = "none";-->
+<!--    }-->
+<!--</script>-->
+
 <script>
     function ShowImg() {
-        document.getElementById("love").style.display = "block";
+        const loveImg = document.getElementById("love");
+        const cryImg = document.getElementById("cry");
+        loveImg.style.display = "block";
+        cryImg.style.display = "none";
     }
 
     function ShowImg1() {
-        document.getElementById("cry").style.display = "block";
+        const loveImg = document.getElementById("love");
+        const cryImg = document.getElementById("cry");
+        cryImg.style.display = "block";
+        loveImg.style.display = "none";
     }
 </script>
+
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KIEM TRA NGAY CỦA THANG</title>
+  <link rel="stylesheet" href="../css/wow.css">
+</head>
+<body>
+  <div class="form-container">
+    <img src="../imggif/calendar.png" width=100 height=100 alt="Calendar Icon"/>
+    <h3>KIỂM TRA NGÀY TRONG THÁNG</h3>
+    <label for = "thang">NHẬP THÁNG :</label>
+      <input type="number" id="thang" value="">
+    <button onclick="kiemtra()" > KIỂM TRA</button>
+    <div class="resultbox" id="ketqua"></div>
+  </div>
+  <script>
+    function kiemtra(){
+    const thang = parseInt(document.getElementById("thang").value);
+    let ketqua = ""
+    switch (thang) {
+      case 1 :
+      case 3 :
+      case 5 :
+      case 7 :
+      case 8 :
+      case 10 :
+      case 12 :
+        ketqua = '31 ngày';
+        break;
+      case 2 :
+        ketqua = '28 hoặc 29 ngày';
+        break;
+        case 4 :
+        case 6 :
+        case 9 :
+        case 11 :
+        ketqua = '30 ngày';
+            break;
+    }
+    document.getElementById("ketqua").innerHTML = ketqua
+    }
+  </script>
+</body>
+</html>

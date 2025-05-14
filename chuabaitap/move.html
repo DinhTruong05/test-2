@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NOBI.NOBITA</title>
+</head>
+<body onload="doready()">
+
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" style="position:absolute;left:0; top:0;" height="100" width="80" alt="NOBI"/>
+
+<script>
+    function uparrow() {
+        let element = document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) -5 + 'px';
+    }
+    function dowarrow() {
+        var element = document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) +5 + 'px';
+    }
+    function leftarrow() {
+        var element = document.getElementById('nobita');
+        element.style.left = parseInt(element.style.left) -5 + 'px';
+    }
+    function rightarrow() {
+        var element = document.getElementById('nobita');
+        element.style.left = parseInt(element.style.left) +5 + 'px';
+    }
+    function moveselection(evt) {
+        switch(evt.keyCode) {
+            case 37:
+                leftarrow();
+                break;
+            case 39:
+                rightarrow();
+                break;
+            case 38:
+                uparrow();
+                break;
+            case 40:
+                dowarrow();
+                break;
+        }
+    }
+    function doready() {
+        window.addEventListener('keydown', moveselection);
+    }
+
+</script>
+</body>
+</html>

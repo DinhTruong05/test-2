@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>JUST FOR FUN</title>
+    <style>
+        #love, #cry {
+            display: none;
+
+        }
+    </style>
 </head>
 <body>
+<h2>show img</h2>
+<button onclick="ShowImg()">Có</button>
+<button onclick="ShowImg1()">Không</button>
+<br><br>
+<img id="love" src="../imggif/pokemon love GIF.gif" height="273" width="500" alt="wait">
 
+
+<img id="cry" src="../pikacry/pokemon crying GIF.gif" height="245" width="245" alt="">
+<script>
+    function ShowImg() {
+        document.getElementById("love").style.display = "block";
+    }
+
+    function ShowImg1() {
+        document.getElementById("cry").style.display = "block";
+    }
+</script>
 </body>
 </html>

@@ -21,13 +21,13 @@
         let a = +document.getElementById("gd").value / 60;
         let total = 0
         if (a >= 5) {
-            total = (a * 60) * 2000
+            total = (a * 60) * 800;
         } else if (a > 3) {
-            total = (a * 60) * 2200;
+            total = (a * 60) * 1000;
         } else if (a > 1) {
-            total = (a * 60) * 2500;
+            total = (a * 60) * 1500;
         } else {
-            total = (a * 60) * 3000;
+            total = (a * 60) * 2000;
         }
         document.getElementById("total").innerHTML = total + " " + " VND"
 

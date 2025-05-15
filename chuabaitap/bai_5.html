@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/wow2.css">
+</head>
+<body>
+<div class="form-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png"
+         alt="Logo">
+    <h2>KIỂM TRA</h2>
+
+    <label for="dkt">Điểm Kiểm Tra </label>
+    <input type="number" id="dkt" name="nhập số A" value=""><br>
+    <label for="dgk">Điểm Giữa Kỳ</label>
+    <input type="number" id="dgk" name="nhập số B" value=""><br>
+    <label for="dck">Điểm Cuối Kỳ</label>
+    <input type="number" id="dck" name="nhập số B" value=""><br>
+
+    <button onclick="kiemtra()"> KIỂM TRA</button>
+    <div class="result-box" id="ketqua"></div>
+    <script>
+        function kiemtra() {
+            let dkt = +document.getElementById('dkt').value;
+            let dgk = +document.getElementById('dgk').value;
+            let dck = +document.getElementById('dck').value;
+            let tb = (dkt + (2 * dgk) + (3 * dck)) / 6
+            if (dkt > 10 || dgk > 10 || dck > 10 || dkt < 0 || dgk < 0 || dck < 0) {
+            document.getElementById('ketqua').innerHTML = "Lỗi: Điểm phải nằm trong khoảng từ 0 đến 10.";
+            return;
+          }
+            if (tb > 10) {
+                document.getElementById('ketqua').innerText = "Điểm số nhập sai vui lòng nhập lại";
+                return;
+            }
+            tb = tb.toFixed(2);
+            if (tb > 8.5) {
+                document.getElementById('ketqua').innerHTML = tb + " " + "Loại Giỏi";
+            } else if (tb > 7) {
+                document.getElementById('ketqua').innerHTML = tb + " " + "Loại Khá";
+            } else if (tb > 5) {
+                document.getElementById('ketqua').innerHTML = tb + " " + "Loại Trung Bình";
+            } else if (tb > 2) {
+                document.getElementById('ketqua').innerHTML = tb + " " + "Loại Yếu";
+            } else {
+                document.getElementById('ketqua').innerHTML = tb + " " + "Lưu Ban";
+            }
+
+        }
+    </script>
+</div>
+</body>
+</html>

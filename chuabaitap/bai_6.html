@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="../css/css_22.css">
+</head>
+<body>
+<div class="form-container">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Hoa hồng" width="60">
+  <h2>KIỂM TRA HOA HỒNG</h2>
+
+  <label for="dt">Doanh thu </label>
+  <input type="number" id="dt" name="nhập số A" value=""><br>
+
+  <button onclick="kiemtra()"> KIỂM TRA</button>
+  <div class="result-box" id="hoahong"></div>
+</div>
+  <script>
+    function kiemtra() {
+      let a = document.getElementById("dt").value;
+      let hoahong = 0;
+      if (a < 5000000 ) {
+        document.getElementById("hoahong").innerHTML = "Không đạt chỉ tiêu";
+        return;
+      }
+      if (a > 15000000) {
+        hoahong = a * 0.2;
+      } else if (a > 10000000) {
+        hoahong = a * 0.1;
+      } else if (a > 5000000) {
+        hoahong = a * 0.05;
+      } else {
+        hoahong = a * 0.02;
+      }
+      document.getElementById("hoahong").innerHTML = hoahong.toLocaleString() +" "+ "VND";
+    }
+  </script>
+
+</body>
+</html>

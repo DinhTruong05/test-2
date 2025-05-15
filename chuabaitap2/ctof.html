@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/css_22.css">
+</head>
+<body>
+<div class="form-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Điện thoại" width="60">
+    <h2>CHUYỂN ĐỔI ĐO LƯỜNG</h2>
+
+    <label for="sd"> Nhập số đo </label>
+    <input type="number" id="sd" name="nhập số A" value=""><br>
+    <label for="gt"> Giá trị </label>
+    <select id="gt" name="chieudai" >
+        <option value="mtof" name="mtof">M to Feet</option>
+        <option value="ftom" name="ftom">Feet to M</option>
+    </select><br>
+    <button onclick="kiemtra()"> KIỂM TRA</button>
+    <div class="result-box" id="total"></div>
+</div>
+<script>
+    function kiemtra() {
+        let a = +document.getElementById("sd").value;
+        let b = document.getElementById("gt").value;
+        let ketqua = "";
+        if (b === "mtof"){
+            ketqua = a * 3.2808;
+            document.getElementById('total').innerHTML ="Kết quả "+ ketqua.toFixed(2) +" "+ "Feet";
+        }else if(b === "ftom"){
+            ketqua = a/3.2808;
+            document.getElementById('total').innerHTML ="Kết quả "+ ketqua.toFixed(2) +" "+ "M ";
+        }
+
+    }
+</script>
+</body>
+</html>

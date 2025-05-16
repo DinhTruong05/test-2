@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: center;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #e0f7fa;
+        }
+
+        td:hover {
+            background-color: #ffe082;
+            cursor: default;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<table id="myTable">
+
+</table>
+<script>
+    let sout= "";
+    for (let i = 1; i <= 9; i++) {
+        sout += '<tr>';
+        for (let j = 2; j <= 9; j++) {
+            sout += "<td>";
+            sout += j +"x"+i + "="+(j*i)
+            sout += '</td>'
+        }
+        sout += "</tr>";
+        }
+    document.getElementById("myTable").innerHTML = sout;
+</script>
+</body>
+</html>

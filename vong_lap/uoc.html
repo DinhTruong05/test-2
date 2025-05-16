@@ -6,27 +6,31 @@
 
 </head>
 <body>
-<label for="a">Sô A</label>
-<input type="number" id="a" name="nhập số A" value=""><br>
-<button onclick="kiemtra()"> KIỂM TRA</button>
+<label>20 SỐ NGUYÊN TỐ ĐẦU TIÊN</label>
 <div class="result-box" id="ketqua"></div>
 <script>
-    function kiemtra() {
-        let a = +document.getElementById('a').value;
-        let b = true;
+    function kiemtra(a) {
+        if(a <2) return false
         for (let i = 2; i < a; i++) {
-            if (a % i === 0) {
-                b = false;
-                break;
-            }
+            if (a % i === 0) return false;
         }
-        if (b) {
-            document.getElementById('ketqua').innerHTML = a + " là số nguyên tố";
-        } else {
-            document.getElementById('ketqua').innerHTML = a + " không là số nguyên tố";
-        }
-    }
+        return true;
 
+    }
+    function hienthi() {
+        let count = 0;
+        let number = 2;
+        let result = [];
+        while (count<20){
+            if (kiemtra(number)){
+                result.push(number);
+                count++
+            }
+            number++
+        }
+        document.getElementById('ketqua').innerHTML= result.join(',')
+    }
+    hienthi();
 </script>
 </body>
 </html>

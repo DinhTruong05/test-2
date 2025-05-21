@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function findmin(a) {
+    let min = a[0]
+    for (let i = 1; i < a.length; i++) {
+      if (a[i] < min) {
+        min = a[i]
+      }
+    }
+    return min
+    
+  }
+  let a = [3, 5, 1, 8, -3, 7, 8]
+  let min = findmin(a)
+  console.log(min)
+</script>
+</body>
+</html>

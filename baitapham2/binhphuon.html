@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>TINH BINH PHUONG CUA 1 SO</h3>
+<label><input type="number" id="number"></label>
+<button onclick="ketqua()">kiem tra</button>
+<p id="ketqua"></p>
+<script>
+  function binhphuong(a) {
+    if (a !== 0)
+    return a * a ;
+  }
+  function ketqua() {
+  let a = +document.getElementById("number").value;
+  document.getElementById("ketqua").innerHTML = binhphuong(a);
+  }
+</script>
+</body>
+</html>

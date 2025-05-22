@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>TINH GIAI THUA CUA SO</h3>
+<p>tinh giai thua cua</p>
+<label><input type="number" id="nhapso"></label><br>
+<button onclick="ketqua()">Ket qua</button>
+<p id="result"></p>
+<script>
+  function ketqua() {
+    let a = +document.getElementById('nhapso').value;
+    document.getElementById('result').innerHTML = giaithua(a);
+  }
+  function giaithua(a){
+    if (a < 0) return "Không có giai thừa cho số âm!";
+    let result = 1;
+    for (let i = 2; i <= a; i++) {
+      result *= i;
+    }
+    return result;
+
+  }
+</script>
+</body>
+</html>

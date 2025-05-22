@@ -13,7 +13,7 @@
     <label for="sd"> Nhập số đo </label>
     <input type="number" id="sd" name="nhập số A" value=""><br>
     <label for="gt"> Giá trị </label>
-    <select id="gt" name="chieudai" >
+    <select id="gt" name="chieudai">
         <option value="mtof" name="mtof">M to Feet</option>
         <option value="ftom" name="ftom">Feet to M</option>
     </select><br>
@@ -25,12 +25,12 @@
         let a = +document.getElementById("sd").value;
         let b = document.getElementById("gt").value;
         let ketqua = "";
-        if (b === "mtof"){
+        if (b === "mtof") {
             ketqua = a * 3.2808;
-            document.getElementById('total').innerHTML ="Kết quả "+ ketqua.toFixed(2) +" "+ "Feet";
-        }else if(b === "ftom"){
-            ketqua = a/3.2808;
-            document.getElementById('total').innerHTML ="Kết quả "+ ketqua.toFixed(2) +" "+ "M ";
+            document.getElementById('total').innerHTML = "Kết quả " + ketqua.toFixed(2) + " " + "Feet";
+        } else if (b === "ftom") {
+            ketqua = a / 3.2808;
+            document.getElementById('total').innerHTML = "Kết quả " + ketqua.toFixed(2) + " " + "M ";
         }
 
     }

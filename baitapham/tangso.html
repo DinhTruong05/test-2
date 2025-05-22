@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>TĂNG SỐ LÊN 1</h3>
+<label><input id="nhapso"></label>
+<button onclick="hienthi()">Tăng lên 1</button>
+<p id="ketqua"></p>
+<script>
+  function tangso(a){
+    return a + 1
+  }
+  function hienthi(){
+  let a = +document.getElementById("nhapso").value;
+  let ketqua = tangso(a);
+  document.getElementById("ketqua").innerHTML = ketqua;
+  }
+
+</script>
+</body>
+</html>

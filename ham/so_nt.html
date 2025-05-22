@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KIỂM TRA SỐ NGUYÊN TỐ</title>
+</head>
+<body>
+    <h3>KIỂM TRA SỐ NGUYÊN TỐ</h3>
+    <label><input type="number" id="so"></label>
+    <button onclick="kiemtra()">Check</button>
+    <p id="ketqua"></p>
+    <script>
+        function isPrime(n) {
+            if (n <= 1) return false;
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+        function kiemtra() {
+            let n = +document.getElementById("so").value;
+            let ketqua = isPrime(n)
+            ? `${n} là số nguyên tố`
+            : `${n} không phải số nguyên tố`;
+            document.getElementById("ketqua").innerHTML = ketqua;
+
+        }
+    </script>
+</body>
+</html>

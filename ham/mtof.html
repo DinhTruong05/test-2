@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>CHUYỂN ĐỔI ĐO LƯỜNG</h2>
+
+<label> Nhập số đo </label><br>
+<label><input type="number" id="met" name="nhập số A" value="Met to Feet">Met to Feet</label><br>
+<label><input type="number" id="feet" name="nhập số A" value="Feet to Met">Feet to Met</label><br>
+<label> Giá trị </label>
+<button onclick="kiemtra()"> KIỂM TRA</button>
+<div class="result-box" id="mtof"></div>
+<div class="result-box" id="ftom"></div>
+<script>
+    function mettofeet(meter){
+        return meter * 3.279
+    }
+    function feettomet(feet){
+        return feet / 3.279
+    }
+    function kiemtra(){
+        let met = document.getElementById("met").value
+        if (!isNaN(met)) {
+            document.getElementById('mtof').innerHTML = `${met} mét = ${mettofeet(met)} feet`;
+        } else {
+            document.getElementById('mtof').innerHTML = '';
+        }
+
+        let feet = document.getElementById("feet").value
+        if (!isNaN(feet)) {
+            document.getElementById('ftom').innerHTML = `${feet} feet = ${feettomet(feet)} mét`;
+        } else {
+            document.getElementById('ftom').innerHTML = '';
+        }
+    }
+
+</script>
+
+</body>
+</html>

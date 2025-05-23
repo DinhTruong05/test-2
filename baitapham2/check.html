@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt("nhap ky tu a");
+    let arr = ["1", "2", "3", "4", "1", "2", "4", "5", "6", "5", "8"];
+
+    function check(arr, a) {
+        let index = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === a) {
+                index += 1;
+            }
+        }
+        if (index === 0) {
+            alert(a + "khong ton tai");
+        } else {
+            alert(a + " ton tai " + index + " lan");
+        }
+    }
+    check(arr, a);
+
+</script>
+
+</body>
+</html>

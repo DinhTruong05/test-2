@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function swap(a,b) {
+    let temp = a;
+    a = b;
+    b = temp;
+    return [a, b];
+  }
+    let x = +prompt("nhạp so a");
+    let y = +prompt("nhạp so b");
+    let [newx,newy] = swap(x,y)
+    alert("sau khi doi cho : sô thu nhat " + newx + " so thu hai " + newy)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đèn Pin Dùng Pin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #lamp {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border-radius: 50%;
+            background-color: gray;
+            box-shadow: 0 0 10px #333;
+        }
+        .on {
+            background-color: yellow;
+            box-shadow: 0 0 50px yellow;
+        }
+        .low {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔦 Đèn Pin Dùng Pin</h1>
+<div id="lamp"></div>
+
+<button onclick="turnOnLamp()">Bật đèn</button>
+<button onclick="turnOffLamp()">Tắt đèn</button>
+<button onclick="chargeBattery()">🔋 Sạc pin</button>
+
+<p><strong>Năng lượng pin:</strong> <span id="battery-level">--</span></p>
+
+<script>
+    // Battery
+    function Battery() {
+        this.energy = 0;
+        this.setEnergy = function (e) {
+            this.energy = e;
+        };
+        this.getEnergy = function () {
+            return this.energy;
+        };
+        this.decreaseEnergy = function () {
+            if (this.energy > 0) this.energy--;
+        };
+        this.increaseEnergy = function () {
+            this.energy++;
+        }
+    }
+
+    // FlashLamp
+    function FlashLamp() {
+        this.status = false;
+        this.setBattery = function (b) {
+            this.battery = b;
+        };
+        this.getBatteryInfo = function () {
+            return this.battery.getEnergy();
+        };
+        this.isOn = function () {
+            return this.status;
+        };
+        this.turnOn = function () {
+            if (this.battery.getEnergy() > 0 && !this.status) {
+                this.status = true;
+                this.battery.decreaseEnergy();
+            } else if (this.battery.getEnergy() === 0) {
+                alert("⚠️ Hết pin rồi! Hãy sạc lại.");
+            }
+            updateLampUI();
+        };
+        this.turnOff = function () {
+            this.status = false;
+            updateLampUI();
+        };
+    }
+
+    // Khởi tạo
+    let battery = new Battery();
+    battery.setEnergy(5);
+
+    let lamp = new FlashLamp();
+    lamp.setBattery(battery);
+    lamp.turnOff();
+
+    function updateLampUI() {
+        const lampDiv = document.getElementById("lamp");
+        const batterySpan = document.getElementById("battery-level");
+        const energy = lamp.getBatteryInfo();
+
+        // Cập nhật đèn
+        if (lamp.isOn()) {
+            lampDiv.classList.add("on");
+        } else {
+            lampDiv.classList.remove("on");
+        }
+
+        // Cập nhật pin
+        batterySpan.textContent = energy;
+        if (energy <= 1) {
+            batterySpan.classList.add("low");
+        } else {
+            batterySpan.classList.remove("low");
+        }
+    }
+
+    function turnOnLamp() {
+        lamp.turnOn();
+    }
+
+    function turnOffLamp() {
+        lamp.turnOff();
+    }
+
+    function chargeBattery() {
+        battery.increaseEnergy();
+        updateLampUI();
+    }
+
+    // Lần đầu tải trang
+    updateLampUI();
+
+</script>
+
+</body>
+</html>

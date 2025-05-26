@@ -8,6 +8,6 @@ class Cricle {
         this._area =  Math.PI * radius * radius;
     }
     showinfo() {
-        return "Radius " + this._radius + " Color " + this._color + " Area " + this._area;
+        return "Radius " + this._radius + "; Color " + this._color + "; Area " + this._area;
     }
 }

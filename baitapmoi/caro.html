@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Cờ Caro 20x20</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(20, 30px);
+            grid-template-rows: repeat(20, 30px);
+            gap: 1px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .cell.winning {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🎮 Cờ Caro 20x20</h2>
+<div id="board"></div>
+<h3 id="status">Lượt: X</h3>
+
+<script>
+    const boardSize = 20;
+    const board = [];
+    let currentPlayer = "X";
+    let isGameOver = false;
+
+    const boardDiv = document.getElementById("board");
+    const status = document.getElementById("status");
+
+    function createBoard() {
+        for (let row = 0; row < boardSize; row++) {
+            board[row] = [];
+            for (let col = 0; col < boardSize; col++) {
+                board[row][col] = "";
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.dataset.row = row;
+                cell.dataset.col = col;
+                cell.addEventListener("click", handleClick);
+                boardDiv.appendChild(cell);
+            }
+        }
+    }
+
+    function handleClick(e) {
+        if (isGameOver) return;
+
+        const row = +e.target.dataset.row;
+        const col = +e.target.dataset.col;
+
+        if (board[row][col] !== "") return;
+
+        board[row][col] = currentPlayer;
+        e.target.textContent = currentPlayer;
+
+        const result = checkWin(row, col);
+        if (result.win) {
+            isGameOver = true;
+            status.textContent = `🎉 Người chơi ${currentPlayer} thắng!`;
+            highlightWinningCells(result.cells);
+        } else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            status.textContent = `Lượt: ${currentPlayer}`;
+        }
+    }
+
+    function checkWin(row, col) {
+        const directions = [
+            { dx: 1, dy: 0 },   // Ngang
+            { dx: 0, dy: 1 },   // Dọc
+            { dx: 1, dy: 1 },   // Chéo xuống phải
+            { dx: 1, dy: -1 }   // Chéo lên phải
+        ];
+
+        for (const {dx, dy} of directions) {
+            let count = 1;
+            let cells = [[row, col]];
+
+            for (let step = 1; step < 5; step++) {
+                const r = row + dy * step;
+                const c = col + dx * step;
+                if (r >= 0 && r < boardSize && c >= 0 && c < boardSize && board[r][c] === currentPlayer) {
+                    count++;
+                    cells.push([r, c]);
+                } else break;
+            }
+
+            for (let step = 1; step < 5; step++) {
+                const r = row - dy * step;
+                const c = col - dx * step;
+                if (r >= 0 && r < boardSize && c >= 0 && c < boardSize && board[r][c] === currentPlayer) {
+                    count++;
+                    cells.push([r, c]);
+                } else break;
+            }
+
+            if (count >= 5) {
+                return { win: true, cells };
+            }
+        }
+
+        return { win: false };
+    }
+
+    function highlightWinningCells(cells) {
+        for (const [r, c] of cells) {
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);
+            if (cell) cell.classList.add("winning");
+        }
+    }
+
+    createBoard();
+</script>
+</body>
+</html>

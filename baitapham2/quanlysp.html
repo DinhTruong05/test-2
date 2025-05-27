@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <script src="javaProdut.js"></script>
+    <link rel="stylesheet" href="sly.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Product</h2>
+    <div class="form">
+        <input type="text" id="productInput" placeholder="New Product">
+        <button onclick="addProduct()">Add</button>
+    </div>
+
+    <h2>Display All Product</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="productTable">
+        <!-- Sản phẩm sẽ hiển thị ở đây -->
+        </tbody>
+    </table>
+    <p id="productCount" class="count"></p>
+</div>
+
+<script src="javaProdut.js"></script>
+</body>
+</html>

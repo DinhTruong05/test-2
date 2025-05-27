@@ -1,35 +1,67 @@
-/**
- * Created by nhatnk on 4/26/17.
- */
-
-function Hero(image, top, left, size){
+function Hero(image, top, left, size, speed){
     this.image = image;
     this.top = top;
     this.left = left;
     this.size = size;
+    this.speed = speed;
 
     this.getHeroElement = function(){
         return '<img width="'+ this.size + '"' +
             ' height="'+ this.size + '"' +
-            ' src="' + this.image +'"' +
-            ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;"  alt="close"/>';
+            ' src="../pikacry/' + this.image +'"' +
+            ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;"  alt="hero"/>';
     }
 
     this.moveRight = function(){
-        this.left += 20;
-        console.log('ok: ' + this.left);
+        if (this.left + this.speed < window.innerWidth - this.size) {
+            this.left += this.speed;
+        }
     }
 
+    this.moveLeft = function(){
+        if (this.left - this.speed >= 0) {
+            this.left -= this.speed;
+        }
+    }
+
+    this.moveUp = function(){
+        if (this.top - this.speed >= 0) {
+            this.top -= this.speed;
+        }
+    }
+
+    this.moveDown = function(){
+        if (this.top + this.speed < window.innerHeight - this.size) {
+            this.top += this.speed;
+        }
+    }
 }
 
-let hero = new Hero('pikachu.png', 20, 30, 200);
+// Thay ảnh nhân vật bằng "mario.png" và tốc độ là 30
+let hero = new Hero('mario.jpg', 20, 30, 100, 30);
 
-function start(){
-    if(hero.left < window.innerWidth - hero.size){
-        hero.moveRight();
-    }
+// Hàm cập nhật nhân vật trên màn hình
+function render(){
     document.getElementById('game').innerHTML = hero.getHeroElement();
-    setTimeout(start, 500)
 }
 
-start();
+// Bắt sự kiện bàn phím để điều khiển nhân vật
+document.addEventListener('keydown', function(event){
+    switch(event.key){
+        case 'ArrowRight':
+            hero.moveRight();
+            break;
+        case 'ArrowLeft':
+            hero.moveLeft();
+            break;
+        case 'ArrowUp':
+            hero.moveUp();
+            break;
+        case 'ArrowDown':
+            hero.moveDown();
+            break;
+    }
+    render();
+});
+
+render();

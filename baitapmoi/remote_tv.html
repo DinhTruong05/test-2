@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điều khiển TV</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .tivi { border: 2px solid #333; padding: 10px; width: 300px; margin-bottom: 20px; }
+        .remote button { margin: 5px; }
+    </style>
+</head>
+<body>
+<h2>TiVi</h2>
+<div class="tivi">
+    <p><strong>Trạng thái:</strong> <span id="status">Tắt</span></p>
+    <p><strong>Kênh hiện tại:</strong> <span id="kenh">--</span></p>
+    <p><strong>Âm lượng:</strong> <span id="amluong">--</span></p>
+</div>
+
+<h3>Remote</h3>
+<div class="remote">
+    <button onclick="remote.turnOn(tv)">Bật TV</button>
+    <button onclick="remote.turnOff(tv)">Tắt TV</button>
+    <br>
+    <button onclick="remote.changeChannel(tv, tv.channel + 1)">Kênh +</button>
+    <button onclick="remote.changeChannel(tv, tv.channel - 1)">Kênh -</button>
+    <br>
+    <button onclick="remote.changeVolume(tv, tv.volume + 1)">Âm lượng +</button>
+    <button onclick="remote.changeVolume(tv, tv.volume - 1)">Âm lượng -</button>
+</div>
+
+<script src="tv.js"></script>
+<script src="remote.js"></script>
+<script src="action.js"></script>
+</body>
+</html>
